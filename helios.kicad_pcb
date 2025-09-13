@@ -9,8 +9,8 @@
 	(paper "A4")
 	(title_block
 		(title "Helios - Cirrus Logic GD542x-2M ISA VGA Card")
-		(date "2025-08-09")
-		(rev "1.1.5")
+		(date "2025-09-13")
+		(rev "1.2.5")
 		(company "Alexander Petrov")
 	)
 	(layers
