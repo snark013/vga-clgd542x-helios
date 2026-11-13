@@ -1,152 +1,152 @@
-# Helios — видеокарта ISA VGA
+# Helios VGA Card
 
-[English version](README_EN.md)
+[Русская версия](README_RU.md)
 
-Основной репозиторий проекта: [git.snark13.com/snark13/helios](https://git.snark13.com/snark13/helios.git).
+Main project repository: [git.snark13.com/snark13/helios](https://git.snark13.com/snark13/helios.git).
 
-Зеркало на GitHub: [github.com/snark013/vga-clgd542x-helios](https://github.com/snark013/vga-clgd542x-helios).
+GitHub mirror: [github.com/snark013/vga-clgd542x-helios](https://github.com/snark013/vga-clgd542x-helios).
 
-Helios — видеокарта для 16-разрядной шины ISA на базе Cirrus Logic CL-GD542x (CL-GD5422–CL-GD5429). Проект выполнен в KiCad и использует двухслойную печатную плату.
+Helios is a VGA graphics card for the 16-bit ISA bus, based on Cirrus Logic CL-GD542x chips (CL-GD5422–CL-GD5429). The project is designed in KiCad and uses a two-layer PCB.
 
-## Состояние проекта
+## Project status
 
-Текущая версия схемы и платы — 1.2.7. Собраны и проверены следующие конфигурации:
+The current schematic and PCB version is 1.2.7. The following configurations have been built and tested:
 
-| Версия платы | Видеочип | Видеопамять |
+| PCB version | Graphics chip | Video memory |
 | --- | --- | --- |
-| 0.3 | CL-GD5422 | 512 КБ |
-| 1.2.5 | CL-GD5429 | 1 МБ |
+| 0.3 | CL-GD5422 | 512 KB |
+| 1.2.5 | CL-GD5429 | 1 MB |
 
-Остальные сочетания ревизий платы, видеочипов и объёмов памяти пока не проверены.
+Other combinations of PCB revision, graphics chip, and memory capacity have not yet been tested.
 
-Материалы выпуска 1.2.7 доступны в репозитории. Сведения об испытаниях выше относятся к версиям 0.3 и 1.2.5.
+Release files for version 1.2.7 are available in the repository. The test results above apply to versions 0.3 and 1.2.5.
 
-## Основные характеристики
+## Key features
 
-- Совместимость с VGA.
-- Встроенный в видеочип цифро-аналоговый преобразователь видеосигнала (RAMDAC) с поддержкой True Color.
-- Три конфигурации видеопамяти: 512 КБ, 1 МБ или 2 МБ в зависимости от видеочипа.
-- Двухслойная печатная плата для 16-разрядной шины ISA.
+- VGA compatibility.
+- Integrated video digital-to-analog converter (RAMDAC) with True Color support.
+- Three video memory configurations: 512 KB, 1 MB, or 2 MB, depending on the graphics chip.
+- Two-layer PCB for the 16-bit ISA bus.
 
-## Конфигурации видеопамяти
+## Video memory configurations
 
-| Объём | Устанавливаемые микросхемы | Видеочипы |
+| Capacity | Chips to populate | Graphics chips |
 | --- | --- | --- |
-| 512 КБ | U1 | CL-GD5422–CL-GD5424 |
-| 1 МБ | U1, U2 | CL-GD5422–CL-GD5429 |
-| 2 МБ | U1–U4 | CL-GD5426–CL-GD5429 |
+| 512 KB | U1 | CL-GD5422–CL-GD5424 |
+| 1 MB | U1, U2 | CL-GD5422–CL-GD5429 |
+| 2 MB | U1–U4 | CL-GD5426–CL-GD5429 |
 
-Таблица описывает предусмотренные конфигурации. Проверенные на практике варианты перечислены в разделе «Состояние проекта».
+This table lists the intended configurations. Configurations tested on hardware are listed under “Project status”.
 
-## Файлы проекта
+## Project files
 
-- [helios.kicad_pro](helios.kicad_pro) — проект KiCad.
-- [helios.kicad_sch](helios.kicad_sch) — принципиальная схема.
-- [helios.kicad_pcb](helios.kicad_pcb) — печатная плата.
-- [helios.pretty/](helios.pretty/) — локальная библиотека посадочных мест.
-- [docs/](docs/) — справочная документация.
-- [release/](release/) — материалы выпусков и файлы предыдущих версий.
-- [images/1.2.5/](images/1.2.5/) — фотографии собранной платы версии 1.2.5.
+- [helios.kicad_pro](helios.kicad_pro) — KiCad project.
+- [helios.kicad_sch](helios.kicad_sch) — schematic.
+- [helios.kicad_pcb](helios.kicad_pcb) — PCB layout.
+- [helios.pretty/](helios.pretty/) — local footprint library.
+- [docs/](docs/) — reference documentation.
+- [release/](release/) — release files and previous version files.
+- [images/1.2.5/](images/1.2.5/) — photos of the assembled version 1.2.5 board.
 
-### Материалы выпусков
+### Release files
 
-| Версия | Gerber-файлы | Схема | Интерактивный список компонентов |
+| Version | Gerber files | Schematic | Interactive bill of materials |
 | --- | --- | --- | --- |
 | 1.2.7 | [ZIP](release/1.2.7/helios-1.2.zip) | [PDF](release/1.2.7/helios.pdf) | [HTML](release/1.2.7/ibom.html) |
 | 1.2.5 | [ZIP](release/1.2.5/helios.zip) | [PDF](release/1.2.5/helios.pdf) | [HTML](release/1.2.5/ibom.html) |
 
-## Конфигурация и сборка
+## Configuration and assembly
 
-Обозначения компонентов ниже относятся к текущей ревизии, если не указано иное. Параметры конфигурационных входов следует сверять с [техническим руководством CL-GD542x](docs/CL-GD542X_Technical_Reference_Manual_Jan1994.pdf) для используемого видеочипа.
+Component references below apply to the current revision unless stated otherwise. Check the configuration input settings against the [CL-GD542x Technical Reference Manual](docs/CL-GD542X_Technical_Reference_Manual_Jan1994.pdf) for the graphics chip being used.
 
-### Конфигурационные резисторы
+### Configuration resistors
 
-| Обозначение | Назначение |
+| Reference | Function |
 | --- | --- |
-| R9 | Доступ к BIOS без тактов ожидания (кроме CL-GD5429) |
-| R10 | Выбор порта управления режимом сна: 3C3h / 4E68h |
-| R11, R12 | Выбор частоты DRAM: 50 / 44 / 41 / 38 МГц |
-| R13 | Настройка временных параметров DRAM |
-| R14 | Настройка режима DRAM multi CAS/WE |
+| R9 | Zero-wait-state BIOS access (except CL-GD5429) |
+| R10 | Sleep control port selection: 3C3h / 4E68h |
+| R11, R12 | DRAM clock selection: 50 / 44 / 41 / 38 MHz |
+| R13 | DRAM timing configuration |
+| R14 | DRAM multi CAS/WE configuration |
 
-По умолчанию устанавливаются все перечисленные резисторы, кроме R10.
+By default, fit all resistors listed above except R10.
 
-### Источник опорного тока
+### Current reference
 
-Устанавливается только один из двух альтернативных вариантов: **U5 или U5′**. Варианты используют LM334 с разной распиновкой; при сборке необходимо учитывать выбранный корпус.
+Fit only one of the two alternatives: **U5 or U5′**. These options use LM334 devices with different pinouts; select the appropriate package when assembling the board.
 
-### Конфигурационные перемычки
+### Configuration jumpers
 
-| Обозначение | Назначение |
+| Reference | Function |
 | --- | --- |
-| JP5 | Использование IRQ2 |
-| JP6 | Работа с ISA без тактов ожидания |
-| JP7 | Выбор области ПЗУ BIOS |
+| JP5 | Enable IRQ2 |
+| JP6 | Zero-wait-state ISA operation |
+| JP7 | BIOS ROM section selection |
 
-По умолчанию устанавливается перемычка JP6.
+JP6 is fitted by default.
 
-В ревизиях до 1.2.7 также предусмотрены JP8 и JP9 для выбора сигнала чтения ПЗУ (MEMR / EROM / GND). На этих платах JP9 следует замкнуть на землю. Начиная с ревизии 1.2.7 перемычки JP8 и JP9 удалены.
+Revisions earlier than 1.2.7 also include JP8 and JP9 to select the ROM read signal (MEMR / EROM / GND). On those boards, connect JP9 to ground. JP8 and JP9 have been removed starting with revision 1.2.7.
 
-### Источник тактового сигнала
+### Clock source
 
-Предусмотрены два варианта получения частоты 14,318 МГц:
+Two options are provided for the 14.318 MHz clock:
 
-- Сигнал BOSC с шины ISA: устанавливается R16.
-- Собственный генератор на плате: устанавливаются Y1, C17 и C18.
+- ISA bus BOSC signal: fit R16.
+- On-board oscillator: fit Y1, C17, and C18.
 
-## Подготовка BIOS
+## BIOS preparation
 
-Образ BIOS от другой видеокарты может потребовать преобразования перед записью в ПЗУ Helios.
+A BIOS image from another graphics card may need conversion before it can be programmed into the Helios ROM.
 
-Во многих исходных платах BIOS рассчитан на 16-разрядную организацию с двумя микросхемами ПЗУ. Младший разряд адреса используется как старший адресный разряд микросхемы для переключения между половинами её содержимого. Подробнее эта организация описана в документации на видеочип.
+Many original boards use a BIOS arranged for 16-bit operation with two ROM chips. The least significant address bit is used as the chip’s most significant address bit to switch between the two halves of its contents. This arrangement is described in the graphics chip documentation.
 
-В Helios используется линейная («плоская») адресация, поэтому образ с другой организацией адресов необходимо преобразовать. Некоторые исходные платы уже используют линейную адресацию; для таких образов это преобразование не требуется.
+Helios uses linear (“flat”) addressing, so images with a different address arrangement must be converted. Some original boards already use linear addressing; their images do not require this conversion.
 
-У ревизии **0.3** дополнительно перепутан порядок линий данных BIOS: D0–D7 подключены как D7–D0. При подготовке образа для этой ревизии необходимо также изменить порядок битов в каждом байте.
+Revision **0.3** also has the BIOS data lines connected in reverse order: D0–D7 are wired as D7–D0. Images prepared for this revision must also have the bit order reversed within each byte.
 
-## История изменений
+## Revision history
 
 ### 1.2.7
 
-- Исправлено ошибочное обозначение типа U8: 74LS245 вместо 74LS541.
-- Удалены перемычки JP8 и JP9.
-- Удалены лишние и исправлены некорректные надписи на плате.
+- Corrected the mislabeled U8 device type from 74LS541 to 74LS245.
+- Removed JP8 and JP9.
+- Removed unnecessary PCB markings and corrected inaccurate ones.
 
 ### 1.2.5
 
-- Оптимизировано расположение компонентов.
-- Для всех конденсаторов ёмкостью менее 0,1 мкФ выбран типоразмер 0603.
-- Добавлена диодная защита выходных линий VGA.
-- Собран второй работающий вариант платы.
+- Optimized component placement.
+- Changed all capacitors below 0.1 µF to the 0603 package.
+- Added diode protection to the VGA output lines.
+- Built the second working board version.
 
 ### 1.2.2
 
-- Оптимизировано расположение компонентов.
-- Изменена нумерация компонентов.
+- Optimized component placement.
+- Renumbered components.
 
 ### 0.7
 
-- Добавлено альтернативное посадочное место HC-49 для генератора на 14,318 МГц.
+- Added an alternative HC-49 footprint for the 14.318 MHz oscillator.
 
 ### 0.5
 
-- Добавлена возможность установки собственного генератора на 14,318 МГц (двухвыводной корпус 5032).
-- Добавлена возможность использования LM334SM с альтернативной распиновкой в качестве источника опорного тока.
-- Исправлена разводка шины данных BIOS.
-- Добавлены согласующие резисторы в линии адресной шины между видеочипом и памятью.
-- Изменена нумерация компонентов.
+- Added support for an on-board 14.318 MHz oscillator (two-pin 5032 package).
+- Added support for the LM334SM with an alternative pinout as a current reference.
+- Corrected the BIOS data bus routing.
+- Added termination resistors to the address bus lines between the graphics chip and memory.
+- Renumbered components.
 
 ### 0.3
 
-- Собран первый работающий вариант платы под кодовым именем Lemon.
-- Обнаружен обратный порядок линий данных BIOS (D0–D7 → D7–D0); требуется соответствующее преобразование образа BIOS.
+- Built the first working board, codenamed Lemon.
+- Identified the reversed BIOS data line order (D0–D7 → D7–D0); the BIOS image requires a corresponding conversion.
 
-## Фотографии
+## Photos
 
-Собранная плата версии 1.2.5.
+Assembled version 1.2.5 board.
 
-<img src="images/1.2.5/1.2.5-top.jpg" alt="Helios 1.2.5: вид сверху" width="480" height="228">
+<img src="images/1.2.5/1.2.5-top.jpg" alt="Helios 1.2.5: top view" width="480" height="228">
 
-<img src="images/1.2.5/1.2.5-bottom.jpg" alt="Helios 1.2.5: вид снизу" width="480" height="240">
+<img src="images/1.2.5/1.2.5-bottom.jpg" alt="Helios 1.2.5: bottom view" width="480" height="240">
 
-[Фотография платы ревизии 0.3](images/0.3/build-0.3.jpg).
+[Photo of the revision 0.3 board](images/0.3/build-0.3.jpg).
